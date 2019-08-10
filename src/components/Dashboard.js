@@ -1,4 +1,8 @@
 import React from "react";
+import { Col, Row } from "react-bootstrap";
+
+import Block from "./Block";
+
 
 class Dashboard extends React.Component {
     componentDidMount() {
@@ -6,9 +10,13 @@ class Dashboard extends React.Component {
     }
     render() {
         const { blocks } = this.props;
-        return <div>
-            {blocks.map(block => <div>{block.number}</div>)}
-        </div>;
+        return <Row>
+            <Col md={12}>
+                {blocks.map(block => <Block
+                    key={block.number}
+                    data={block} />)}
+            </Col>
+        </Row>;
     }
 }
 

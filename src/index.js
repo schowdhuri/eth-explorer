@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import App from "./components/App";
 
@@ -17,7 +17,7 @@ const store = configureStore(reducer, sagaMiddleware);
 sagaMiddleware.run(sagas);
 
 ReactDOM.render(<Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
         <App />
-    </BrowserRouter>
+    </HashRouter>
 </Provider>, document.getElementById("app-root"));

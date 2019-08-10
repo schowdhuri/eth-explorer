@@ -4,7 +4,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
-    entry: [ "babel-polyfill", "./src/index.js" ],
+    entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "app.min.js"
@@ -22,6 +22,20 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: "babel-loader"
+            }
+        }, {
+            test: /\.s?css$/,
+            use: [{
+                loader: "style-loader"
+            }, {
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader"
+            }]
+        }, {
+            test: /\.(woff)|(eot)|(ttf)|(svg)|(png)|(jpe?g)|(gif)/,
+            use: {
+                loader: "file-loader"
             }
         }]
     },

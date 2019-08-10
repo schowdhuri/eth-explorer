@@ -1,0 +1,14 @@
+.block {
+
+    &__heading {
+        display: flex;
+
+        &__num {
+            flex: 4;
+        }
+        &__time {
+            flex: 1;
+            text-align: right;
+        }
+    }
+}

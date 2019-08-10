@@ -4,6 +4,7 @@ import { RCV_LATEST_BLOCK, REQ_BLOCKS } from "../constants";
 import { reqLatestBlock, rcvBlocks } from "../actions";
 
 import eth from "../utils/eth";
+import cache from "../utils/BlockCache";
 
 
 function* getBlocks(action) {
@@ -17,9 +18,17 @@ function* getBlocks(action) {
     }
     const pArr = [];
     while(--count >= 0) {
-        pArr.push(eth.getBlock(start - count));
+        const num = start - count; 
+        if(cache.has(num))
+            pArr.push(Promise.resolve(cache.get(num)));
+        else
+            pArr.push(eth.getBlock(start - count));
     }
     const blocks = yield all(pArr);
+    console.log(blocks)
+    blocks
+        .filter(b => b)
+        .forEach(b => cache.set(b.number, b));
     yield put(rcvBlocks(blocks));
 }
 
