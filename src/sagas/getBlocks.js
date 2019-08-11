@@ -24,11 +24,10 @@ function* getBlocks(action) {
         else
             pArr.push(eth.getBlock(start - count));
     }
-    const blocks = yield all(pArr);
-    console.log(blocks)
-    blocks
-        .filter(b => b)
-        .forEach(b => cache.set(b.number, b));
+    let blocks = yield all(pArr);
+    
+    blocks = blocks.filter(b => b)
+    blocks.forEach(b => cache.set(b.number, b));
     yield put(rcvBlocks(blocks));
 }
 

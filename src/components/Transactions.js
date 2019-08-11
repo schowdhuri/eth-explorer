@@ -1,5 +1,5 @@
 import React from "react";
-import { Panel } from "react-bootstrap";
+import { Breadcrumb, Panel } from "react-bootstrap";
 
 const PAGE_SIZE = 10;
 
@@ -46,9 +46,14 @@ class Transactions extends React.Component {
         }
     }
     render() {
-        const { transactions } = this.props;
+        const { block, transactions } = this.props;
         
         return (<div className="transactions">
+            <Breadcrumb>
+                <Breadcrumb.Item href="#/">&lt; Back</Breadcrumb.Item>
+                {!block || <Breadcrumb.Item active>
+                    Block #{block.number}</Breadcrumb.Item>}
+            </Breadcrumb>
             {transactions.filter(txn => txn.to).map(txn =>
                 (<Panel key={txn.hash} className="transactions__txn">
                     <Panel.Body>
