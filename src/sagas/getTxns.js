@@ -1,20 +1,30 @@
 import { all, take, takeEvery, put } from "redux-saga/effects";
 
 import { REQ_TXNS } from "../constants";
-import { rcvTxns } from "../actions";
+import { rcvTxns, setLoading } from "../actions";
 
 import eth from "../utils/eth";
 
 
 function* getTxns(action) {
     let { idArr } = action;
-    const pArr = idArr.map(id => eth.getTransaction(id));
+    yield put(setLoading(REQ_TXNS, true));
+    const pArr = idArr.map(id => {
+        return eth.getTransaction(id);
+    });
     const result = yield all(pArr);
-    const txns = result.reduce((acc, cur) => ({
-        ...acc,
-        [cur.hash]: cur
-    }), {});
+    // console.log(result);
+    const txns = result.reduce((acc, cur) => {
+        if(cur)
+            return {
+                ...acc,
+                [cur.hash]: cur
+            };
+        else
+            return acc;
+        }, {});
     yield put(rcvTxns(txns));
+    yield put(setLoading(REQ_TXNS, false));
 }
 
 export default function* () {

@@ -9,7 +9,7 @@ import "./Dashboard.scss";
 
 class Dashboard extends React.Component {
     constructor() {
-        super();
+        super(...arguments);
         this.state = {
             selected: null
         };
@@ -19,7 +19,15 @@ class Dashboard extends React.Component {
         this.setState({ selected: num });
     }
     componentDidMount() {
+        this.setState({ selected: null });
         this.props.getBlocks();
+    }
+    componentWillReceiveProps(nextProps) {
+        if(!this.state.selected && nextProps.blocks.length > 1) {
+            this.setState({
+                selected: nextProps.blocks[0].number
+            })
+        }
     }
     render() {
         const { blocks } = this.props;

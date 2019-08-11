@@ -9,12 +9,8 @@ const Block = props => {
     return (<div className={`block ${active ? "block--active" : ""}`}
         onClick={onClick}
     >
-        <div className="block--active__bg-bar" />
-        <div className="block__num">
-            <Link to={`/block/${data.number}`}>
-                Block #{data.number}
-            </Link>
-        </div>
+        {active ? <div className="block--active__bg-bar" /> : null}
+        <div className="block__num">Block #{data.number}</div>
         <div className="block__time">
             {timeago().format(new Date(data.timestamp * 1000))}
         </div>

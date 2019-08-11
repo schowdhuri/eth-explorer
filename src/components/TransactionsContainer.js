@@ -4,7 +4,8 @@ import * as actions from "../actions";
 
 import {
     getSelectedBlock,
-    getTransactions
+    getTransactions,
+    isLoadingTxns
 } from "../selectors";
 
 import Transactions from "./Transactions";
@@ -12,6 +13,7 @@ import Transactions from "./Transactions";
 
 const mapStateToProps = (state) => ({
     block: getSelectedBlock(state),
+    isLoading: isLoadingTxns(state),
     transactions: getTransactions(state)
 });
 

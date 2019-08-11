@@ -50,3 +50,9 @@ export const rcvTxns = transactions => ({
     type: ACTIONS.RCV_TXNS,
     transactions
 });
+
+export const setLoading = (id, status) => ({
+    type: ACTIONS.LOADING,
+    id,
+    status
+});

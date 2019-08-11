@@ -1,0 +1,26 @@
+.breadcrumb-nav {
+    background: #fff;
+    margin-top: -22px;
+    padding: 16px 0;
+    box-shadow: 0 2px 4px #999;
+    margin-bottom: 32px;
+
+    &__items {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    &__item {
+        display: inline-block;
+        
+        &:before {
+            content: " / ";
+            display: inline-block;
+            margin: 0 6px;
+            opacity: 0.6;
+        }
+        &:first-child:before {
+            display: none;
+        }
+    }
+}

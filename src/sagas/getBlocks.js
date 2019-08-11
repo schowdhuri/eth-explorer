@@ -1,7 +1,7 @@
 import { all, take, takeEvery, put } from "redux-saga/effects";
 
 import { RCV_LATEST_BLOCK, REQ_BLOCKS } from "../constants";
-import { reqLatestBlock, rcvBlocks } from "../actions";
+import { reqLatestBlock, rcvBlocks, setLoading } from "../actions";
 
 import eth from "../utils/eth";
 import cache from "../utils/BlockCache";
@@ -11,6 +11,7 @@ function* getBlocks(action) {
     let { start, count } = action;
     if(!count || count < 0)
         count = 10;
+    yield put(setLoading(REQ_BLOCKS, true));
     if(!start) {
         yield put(reqLatestBlock());
         const result = yield take(RCV_LATEST_BLOCK);
@@ -29,6 +30,7 @@ function* getBlocks(action) {
     blocks = blocks.filter(b => b)
     blocks.forEach(b => cache.set(b.number, b));
     yield put(rcvBlocks(blocks));
+    yield put(setLoading(REQ_BLOCKS, false));
 }
 
 export default function* () {
