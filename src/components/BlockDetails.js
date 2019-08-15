@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import "./BlockDetails.scss";
 
 
 const fields = [{
@@ -37,11 +38,12 @@ const fields = [{
 }, {
     id: "nonce",
     name: "Nonce"
-}]
+}];
 
 const BlockDetails = props => {
     const { data, active } = props;
-    
+    if(!data)
+        return null;
     return (<div className={`block-details ${active ? "block-details--active" : ""}`}>
         <dl>
             {fields.map(field => (<React.Fragment key={field.id}>

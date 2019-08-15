@@ -4,7 +4,6 @@ import getBlockNumber from "./getBlockNumber";
 import getBlock from "./getBlock";
 import getBlocks from "./getBlocks";
 import getTxns from "./getTxns";
-import selectBlock from "./selectBlock";
 
 
 export default function* () {
@@ -12,5 +11,4 @@ export default function* () {
     yield fork(getBlock);
     yield fork(getBlocks);
     yield fork(getTxns);
-    yield fork(selectBlock);
 };

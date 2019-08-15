@@ -1,0 +1,50 @@
+@import "../sass/variables";
+
+.tabs {
+    $border-color: #d3d3d4;
+
+    height: 100%;
+    position: relative;
+
+    &__buttons {
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: -3rem;
+        z-index: 2;
+    }
+    &__button {
+        background: #e3e3e4;
+        border: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: #606061;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1;
+        margin-right: 0.5rem;
+        padding: 1rem;
+
+        &:hover {
+            color: $link-color;
+        }
+        &:focus {
+            outline: 0;
+        }
+
+        &--active {
+            background-color: #fff;
+            border-bottom: none;
+            box-shadow: 0 2px 2px #fff;
+            font-weight: 400;
+        }
+    }
+    &__content {
+        height: 100%;
+        // padding-top: 3.3rem;
+    }
+    &__pane {
+        height: 100%;
+        overflow: hidden;
+    }
+}

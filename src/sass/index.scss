@@ -1,14 +1,48 @@
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
+@import "reset";
 @import "./variables";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import "./bootswatch";
+@import "./icons";
 
 body {
     background: #f2f2f2;
+    color: $text-color;
+    font-size: $font-size;
+    line-height: 1.25;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    color: $link-color;
+}
+html, body {
+    height: 100%;
+}
+body, input, textarea, select, button {
+    font-family: "Source Sans Pro", sans-serif;
+}
+#app-root {
+    height: 100%;
+    padding-top: $navbar-height;
 }
 .navbar {
+    height: $navbar-height;
+    background-color: $navbar-bg;
     border-radius: 0;
+    font-size: 1.5rem;
+    line-height: $navbar-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    .navbar__brand {
+        color: $navbar-color;
+        text-decoration: none;
+    }
+}
+.container {
+    @include container();
 }
 .spin {
     -webkit-animation: spin 2s infinite linear;

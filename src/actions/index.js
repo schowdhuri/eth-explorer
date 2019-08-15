@@ -30,16 +30,10 @@ export const rcvBlocks = blocks => ({
     blocks
 });
 
-export const reqSelectBlock = id => ({
-    type: ACTIONS.REQ_SELECT_BLOCK,
-    id
-});
-
-export const rcvSelectBlock = block => ({
-    type: ACTIONS.RCV_SELECT_BLOCK,
+export const selectBlock = block => ({
+    type: ACTIONS.SELECT_BLOCK,
     block
 });
-
 
 export const reqTxns = idArr => ({
     type: ACTIONS.REQ_TXNS,

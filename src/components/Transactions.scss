@@ -1,33 +1,38 @@
+@import "../sass/variables";
+
 .transactions {
     margin-bottom: 32px;
+
+    &--loading,
+    &--empty {
+        padding: 1rem;
+    }
 }
-.txn-summary {
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    margin: 0 5px 10px 0;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+.txn {
+    background-color: #fff;
+    overflow: hidden;
+
+    &:nth-child(even) {
+        background-color: #ecf6ff;
+    }
+}
+.txn__summary {
+    cursor: pointer;
+    display: flex;
     
-    &__label,
-    &__value {
+    .icon-plus,
+    .icon-minus {
         display: inline-block;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 75%;
+        padding: 0.8rem;
     }
-
-    &__label {
-        font-weight: 500;
-        margin-right: 10px;
-    }
-
-    &__from {
-        padding: 10px 5px 5px 10px;
+    
+    &__hash {
+        flex: 12;
+        padding: 10px 20px 10px 5px;
     }
     &__eth {
-        padding: 10px 10px 5px 5px;
+        flex: 4;
+        padding: 10px 20px;
         text-align: right;
     }
     &__to {
@@ -37,4 +42,33 @@
         padding: 5px 10px 10px 5px;
         text-align: right;
     }
+}
+
+.txn__details {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 2.3rem;
+    transition: max-height 0.2s;
+
+    &--active {
+        max-height: 300px;
+    }
+}
+
+.btn-load-more-txns {
+    background-color: $btn-secondary-bg;
+    border-radius: 2px;
+    border: none;
+    color: $btn-secondary-text;
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.no-more-txns {
+    text-align: center;
+    margin: 1rem auto;
+    font-style: italic;
+    color: #999;
 }

@@ -1,137 +1,19 @@
+@import "../sass/variables";
+
+.dashboard {
+    @include container();
+    height: 100%;
+    display: flex;
+}
 .blocks {
-    display: grid;
-    grid-template-columns: 1fr;
-    background: #f2f2f2;
-}
-@media (min-width: 750px) {
-    .blocks {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.block {
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    margin: 0 0 10px 0;
-    @media (min-width: 750px) {
-        margin: 0 5px 10px 0;
-    }
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-        "number number time"
-        "hash hash txn";
-
-    &:hover {
-        box-shadow: 0 1px 4px rgba(33, 150, 243, 0.3);
-    }
-    
-    &--active {
-        border: solid 1px #e3e3e4;
-        @media (min-width: 750px) {
-            border-right: none;
-        }
-        box-shadow: none;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        position: relative;
-        
-        &:hover {
-            box-shadow: none;
-        }
-        @media (min-width: 750px) {
-            &__bg-bar {
-                border-top: solid 1px #e3e3e4;
-                border-bottom: solid 1px #e3e3e4;
-                position: absolute;
-                left: 100%;
-                right: -6px;
-                background: #fff;
-                bottom: -1px;
-                top: -1px;
-                z-index: 2;
-            }
-        }
-    }
-    &__num {
-        font-weight: 500;
-        grid-area: number;
-        padding: 10px;
-    }
-    &__time {
-        grid-area: time;
-        text-align: right;
-        padding: 10px;
-    }
-    &__hash {
-        grid-area: hash;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        padding: 5px 5px 10px 10px;
-    }
-    &__num-txn {
-        grid-area: txn;
-        text-align: right;
-        padding: 5px 10px 10px 5px;
-    }
-    &__details,
-    &__details--active {
-        position: relative;
-    }
-}
-
-.block-details {
-    background: #fff;
-    border: solid 1px #e3e3e4;
-    border-radius: 2px;
-    max-height: 0px;
-    left: 0;
-    right: 0;
-    opacity: 0;
+    flex: 1;
+    height: 100%;
     overflow: hidden;
-    padding: 10px;
-    visibility: hidden;
-    transition: opacity 0.2s,
-        visibility 0.2s,
-        max-height 0.5s cubic-bezier(1, -0.09, 1, 1);
-
-    @media (min-width: 750px) {
-        position: absolute;
-        max-height: 100%;
-        width: 10%;
-        transition: opacity 0.2s,
-            visibility 0.2s,
-            width 0.2s cubic-bezier(0, 0.79, 0.55, 1),
-            max-height 0.5s cubic-bezier(1, -0.09, 1, 1);
-    }
-
-    &--active {
-        border-top: none;
-        margin-top: -12px;
-        margin-bottom: 30px;
-        max-height: 750px;
-        opacity: 1;
-        visibility: visible;
-        z-index: 1;
-
-        @media (min-width: 750px) {
-            width: 100%;
-            border-top: solid 1px #e3e3e4;
-            margin-top: 0;
-        }
-    }
-    &__hash {
-        max-width: 200px;
-        word-wrap: break-word;
-    }
-    &__label {
-        font-weight: 500;
-    }
-    &__value {
-        font-weight: 300;
-        word-wrap: break-word;
-        margin-bottom: 10px;
-    }
+}
+.dashboard__details {
+    border-left: solid 1px #e3e3e4;
+    border-right: solid 1px #e3e3e4;
+    background-color: #fff;
+    flex: 3;
+    height: 100%;
 }

@@ -1,8 +1,10 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Scrollbars } from "react-custom-scrollbars";
 
 import Block from "./Block";
 import BlockDetails from "./BlockDetails";
+import Transactions from "./TransactionsContainer";
+import Tabs from "./Tabs";
 
 import "./Dashboard.scss";
 
@@ -32,22 +34,26 @@ class Dashboard extends React.Component {
     render() {
         const { blocks } = this.props;
         const { selected } = this.state;
+        const selectedBlock = blocks.find(b => b.number == selected);
 
-        return (<div className="blocks">
-            {blocks.map(block =>(<React.Fragment key={block.number}>
-                <div
-                    className={`blocks__summary ${selected==block.number ? "blocks__summary--active" : ""}`}
-                >
-                    <Block
+        return (<div className="dashboard">
+            <div className="blocks">
+                <Scrollbars style={{ width: "100%", height: "100%" }}>
+                    {blocks.map(block =><Block key={block.number}
                         data={block} onClick={() => this.select(block.number)}
-                        active={selected==block.number} />
-                </div>
-                <div
-                    className={`block__details ${selected==block.number ? "--active" : ""}`}
-                >
-                    <BlockDetails data={block} active={selected==block.number} />
-                </div>
-            </React.Fragment>))}
+                        active={selected==block.number} />)}
+                </Scrollbars>
+            </div>
+            <div className="dashboard__details">
+                <Tabs>
+                    <Tabs.Pane name="Details">
+                        <BlockDetails data={selectedBlock} />
+                    </Tabs.Pane>
+                    <Tabs.Pane name="Transactions">
+                        <Transactions block={selectedBlock} />
+                    </Tabs.Pane>
+                </Tabs>
+            </div>
         </div>);
     }
 }

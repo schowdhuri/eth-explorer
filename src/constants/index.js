@@ -6,6 +6,5 @@ export const REQ_BLOCK          = "REQ_BLOCK";
 export const RCV_BLOCK          = "RCV_BLOCK";
 export const REQ_TXNS           = "REQ_TXNS";
 export const RCV_TXNS           = "RCV_TXNS";
-export const REQ_SELECT_BLOCK   = "REQ_SELECT_BLOCK";
-export const RCV_SELECT_BLOCK   = "RCV_SELECT_BLOCK";
+export const SELECT_BLOCK       = "SELECT_BLOCK";
 export const LOADING            = "LOADING";

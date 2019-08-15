@@ -8,10 +8,7 @@ export const getBlocks = state => state.blocks
 
 const getSelectedBlockId = state => state.selectedBlock;
 
-export const getSelectedBlock = createSelector(
-    [ getBlocks, getSelectedBlockId],
-    (blocks, id) => blocks.find(b => b.number == id)
-);
+export const getSelectedBlock = state => state.selectedBlock;
 
 const getAllTransactions = state => state.transactions;
 
