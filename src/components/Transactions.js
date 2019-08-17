@@ -6,14 +6,6 @@ import { TXNS_PER_PAGE as PAGE_SIZE } from "../constants/pagination";
 import "./Transactions.scss";
 
 
-const formatEth = wei => {
-    const ethVal = `${(wei / Math.pow(10, 18))}`;
-    let [ num, frac ] = ethVal.split(".")
-    if(frac)
-        return `${num}.${frac.slice(0, 8)}`;
-    return num;
-};
-
 class Transactions extends React.Component {
     constructor() {
         super(...arguments);
@@ -102,9 +94,10 @@ class Transactions extends React.Component {
                     {isLoading
                         ? <i className="icon icon-loading spin" />
                         : null}
-                    
                 </button>
-                : <div className="no-more-txns">That's all folks!</div>}
+                : isLoading || <div className="no-more-txns">
+                        That's all folks!
+                    </div>}
         </div>);
     }
 };

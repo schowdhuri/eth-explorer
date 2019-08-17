@@ -1,5 +1,7 @@
 import React from "react";
 
+import formatGas from "../utils/formatGas";
+
 import "./BlockDetails.scss";
 
 
@@ -31,13 +33,19 @@ const fields = [{
     transform: val => `${val} bytes`
 }, {
     id: "gasUsed",
-    name: "Gas Used"
+    name: "Gas Used",
+    transform: formatGas
 }, {
     id: "gasLimit",
-    name: "Gas Limit"
+    name: "Gas Limit",
+    transform: formatGas
 }, {
     id: "nonce",
     name: "Nonce"
+}, {
+    id: "transactions",
+    name: "Transactions",
+    transform: val => val.length
 }];
 
 const BlockDetails = props => {

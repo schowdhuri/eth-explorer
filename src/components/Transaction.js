@@ -1,17 +1,8 @@
 import React from "react";
 
-const formatEth = wei => {
-    const ethVal = `${(wei / Math.pow(10, 18))}`;
-    let [ num, frac ] = ethVal.split(".")
-    if(frac)
-        return `${num}.${frac.slice(0, 8)}`;
-    return num;
-};
+import formatEth from "../utils/formatEth";
+import formatGas from "../utils/formatGas";
 
-const formatGas = wei => {
-    const ethVal = wei / Math.pow(10, 18);
-    return `${ethVal.toFixed(18)}`.replace(/0+$/, "") + " ETH";
-}
 
 const fields = [{
     id: "from",
