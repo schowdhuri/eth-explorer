@@ -1,4 +1,4 @@
-import * as ACTIONS from "../constants";
+import * as ACTIONS from "../constants/actions";
 
 const initialState = [];
 

@@ -17,3 +17,39 @@
     flex: 3;
     height: 100%;
 }
+
+.block-action {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: $block-icon-size*1.5 1fr;
+    grid-column-gap: 10px;
+    margin: $block-icon-size/4 0;
+    position: relative;
+    
+    &__icon {
+        border: solid 1px $block-border-color;
+        border-radius: 50%;
+        height: $block-icon-size;
+        line-height: 3;
+        position: relative;
+        text-align: center;
+        width: $block-icon-size;
+        
+        &--load-more.icon {
+            font-size: 0.8rem;
+            transform: rotate(90deg);
+        }
+    }
+    &__cta {
+        line-height: $block-icon-size;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    &:hover &__icon {
+        border-color: $link-color;
+        color: $link-color;
+    }
+    &:hover &__cta {
+        color: $link-color;
+    }
+}

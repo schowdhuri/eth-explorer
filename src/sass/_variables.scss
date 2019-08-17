@@ -15,6 +15,7 @@ $page-padding: 0 1rem;
 
 // Block
 $block-icon-size: 40px;
+$block-border-color: #999;
 
 @mixin container() {
     padding: $page-padding;

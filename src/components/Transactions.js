@@ -1,10 +1,10 @@
 import React from "react";
 
 import Transaction from "./Transaction";
+import { TXNS_PER_PAGE as PAGE_SIZE } from "../constants/pagination";
 
 import "./Transactions.scss";
 
-const PAGE_SIZE = 20;
 
 const formatEth = wei => {
     const ethVal = `${(wei / Math.pow(10, 18))}`;

@@ -1,10 +1,8 @@
 import { createSelector } from "reselect";
 
-import * as  ACTIONS from "../constants";
+import * as  ACTIONS from "../constants/actions";
 
-export const getBlocks = state => state.blocks
-    .filter(b => b)
-    .sort((a, b) => a.number < b.number);
+export const getBlocks = state => state.blocks;
 
 const getSelectedBlockId = state => state.selectedBlock;
 

@@ -1,6 +1,6 @@
 import { call, takeEvery, put } from "redux-saga/effects";
 
-import { REQ_BLOCK } from "../constants";
+import { REQ_BLOCK } from "../constants/actions";
 import { rcvBlock } from "../actions";
 
 import eth from "../utils/eth";

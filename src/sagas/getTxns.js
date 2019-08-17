@@ -1,6 +1,6 @@
 import { all, take, takeEvery, put } from "redux-saga/effects";
 
-import { REQ_TXNS } from "../constants";
+import { REQ_TXNS } from "../constants/actions";
 import { rcvTxns, setLoading } from "../actions";
 
 import eth from "../utils/eth";

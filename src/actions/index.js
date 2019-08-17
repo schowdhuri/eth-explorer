@@ -1,4 +1,4 @@
-import * as ACTIONS from "../constants";
+import * as ACTIONS from "../constants/actions";
 
 export const reqLatestBlock = () => ({
     type: ACTIONS.REQ_LATEST_BLOCK
@@ -19,15 +19,16 @@ export const rcvBlock = block => ({
     block
 });
 
-export const reqBlocks = (start, count=10) => ({
+export const reqBlocks = (start=0, count=10) => ({
     type: ACTIONS.REQ_BLOCKS,
     start,
     count
 });
 
-export const rcvBlocks = blocks => ({
+export const rcvBlocks = (blocks, start) => ({
     type: ACTIONS.RCV_BLOCKS,
-    blocks
+    blocks,
+    start
 });
 
 export const selectBlock = block => ({

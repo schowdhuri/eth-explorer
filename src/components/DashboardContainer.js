@@ -2,13 +2,14 @@ import { connect } from "react-redux";
 
 import * as actions from "../actions";
 
-import { getBlocks } from "../selectors";
+import { getBlocks, isLoadingBlocks } from "../selectors";
 
 import Dashboard from "./Dashboard";
 
 
 const mapStateToProps = state => ({
-    blocks: getBlocks(state)
+    blocks: getBlocks(state),
+    isLoading: isLoadingBlocks(state)
 });
 
 const mapDispatchToProps = dispatch => ({
