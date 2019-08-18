@@ -3,17 +3,11 @@ const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "app.min.js"
-    },
-    devtool: "inline-source-map",
-    devServer: {
-        contentBase: "/dist",
-        compress: true,
-        port: 3000
     },
     module: {
         rules: [{

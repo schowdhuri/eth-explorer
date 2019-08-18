@@ -4,17 +4,19 @@
   "description": "Ethereum Blockchain Explorer",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --config=webpack.config.js",
-    "dev": "webpack-dev-server --open --config=webpack.config.dev.js"
+    "build": "./node_modules/.bin/webpack --config=webpack.config.prod.js",
+    "dev": "webpack-dev-server --open --config=webpack.config.dev.js",
+    "start": "./node_modules/.bin/http-server ./dist -d false -g -s -p 3555"
   },
   "keywords": [
     "web3",
     "ethereum"
   ],
-  "author": "Subir <subir.chowdhuri@gmail.com>",
+  "author": "Subir <schowdhuri@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
     "bootstrap-sass": "3.3.7",
+    "http-server": "^0.11.1",
     "react": "16.3.2",
     "react-custom-scrollbars": "4.2.1",
     "react-dom": "16.3.2",
