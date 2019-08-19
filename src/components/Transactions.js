@@ -82,8 +82,8 @@ class Transactions extends React.Component {
             </div>);
         }
         return (<div className="transactions">
-            {transactions.filter(txn => txn.to).map(txn =>
-                <Transaction key={txn.hash} data={txn} />)}
+            {transactions.filter(txn => txn.value && txn.value!=="0")
+                .map(txn => <Transaction key={txn.hash} data={txn} />)}
             {transactions.length > 0 && page < totalPages
                 ? <button
                     className="btn btn-primary btn-load-more-txns"
