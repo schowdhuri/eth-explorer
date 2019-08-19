@@ -38,4 +38,4 @@ function* getBlocks(action) {
 
 export default function* () {
     yield takeEvery(REQ_BLOCKS, getBlocks);
-};
+}

@@ -1,4 +1,6 @@
+/* eslint-disable react/no-deprecated */
 import React from "react";
+import PropTypes from "prop-types";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import Block from "./Block";
@@ -78,5 +80,10 @@ class Dashboard extends React.Component {
         </div>);
     }
 }
+Dashboard.propTypes = {
+    blocks: PropTypes.array,
+    isLoading: PropTypes.bool,
+    getBlocks: PropTypes.func.isRequired
+};
 
 export default Dashboard;

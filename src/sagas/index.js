@@ -11,4 +11,4 @@ export default function* () {
     yield fork(getBlock);
     yield fork(getBlocks);
     yield fork(getTxns);
-};
+}

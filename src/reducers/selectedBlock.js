@@ -8,4 +8,4 @@ export default (state=initialState, action) => {
             return action.block;
     }
     return state;
-}
+};

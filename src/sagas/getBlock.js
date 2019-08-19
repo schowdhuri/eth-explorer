@@ -21,4 +21,4 @@ function* getBlock(action) {
 
 export default function* () {
     yield takeEvery(REQ_BLOCK, getBlock);
-};
+}

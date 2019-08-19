@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import formatGas from "../utils/formatGas";
 
@@ -64,6 +65,23 @@ const BlockDetails = props => {
             </React.Fragment>))}
         </dl>
     </div>);
+};
+BlockDetails.propTypes = {
+    active: PropTypes.bool,
+    data: PropTypes.shape({
+        difficulty: PropTypes.string,
+        gasUsed: PropTypes.number,
+        gasLimit: PropTypes.number,
+        hash: PropTypes.string,
+        miner: PropTypes.string,
+        nonce: PropTypes.string,
+        number: PropTypes.number,
+        parentHash: PropTypes.string,
+        size: PropTypes.number,
+        timestamp: PropTypes.number,
+        totalDifficulty: PropTypes.string,
+        transactions: PropTypes.arrayOf(PropTypes.string)
+    })
 };
 
 export default BlockDetails;

@@ -1,4 +1,6 @@
+/* eslint-disable react/no-deprecated */
 import React from "react";
+import PropTypes from "prop-types";
 
 import Transaction from "./Transaction";
 import { TXNS_PER_PAGE as PAGE_SIZE } from "../constants/pagination";
@@ -28,7 +30,6 @@ class Transactions extends React.Component {
         if(!block)
             block = this.props.block;
         const { page } = this.state;
-        const { transactions } = this.props;
         const idsOnPage = block.transactions.slice(
             (page - 1) * PAGE_SIZE,
             page * PAGE_SIZE
@@ -66,7 +67,7 @@ class Transactions extends React.Component {
         const { block, isLoading, transactions } = this.props;
         const { page } = this.state;
         const totalPages = Math.ceil(
-            this.props.block.transactions.length / PAGE_SIZE
+            block.transactions.length / PAGE_SIZE
         );
         if(isLoading && !transactions.length) {
             return (<div className="transactions transactions--loading">
@@ -96,10 +97,22 @@ class Transactions extends React.Component {
                         : null}
                 </button>
                 : isLoading || <div className="no-more-txns">
-                        That's all folks!
-                    </div>}
+                    {"That's all folks!"}
+                </div>}
         </div>);
     }
+}
+Transactions.propTypes = {
+    block: PropTypes.shape({
+        number: PropTypes.number,
+        transactions: PropTypes.arrayOf(PropTypes.string)
+    }),
+    getTransactions: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool,
+    selectBlock: PropTypes.func.isRequired,
+    transactions: PropTypes.arrayOf(PropTypes.shape({
+        hash: PropTypes.string
+    }))
 };
 
 export default Transactions;

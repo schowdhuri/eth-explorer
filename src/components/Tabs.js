@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import "./Tabs.scss";
@@ -8,7 +9,13 @@ const Pane = props => {
         <Scrollbars style={{ width: "100%", height: "100%" }}>
             {props.children}
         </Scrollbars>
-    </div>)
+    </div>);
+};
+Pane.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.node
+    ])
 };
 
 class Tabs extends React.Component {
@@ -20,13 +27,13 @@ class Tabs extends React.Component {
         this.handleChangeTab = this.handleChangeTab.bind(this);
     }
     handleChangeTab(index) {
-        this.setState({ active: index })
+        this.setState({ active: index });
     }
     render() {
         const { active } = this.state;
         const panes = this.props.children.filter(
             c => c && c.type === Pane);
-        const names = panes.map(p => p.props.name)
+        const names = panes.map(p => p.props.name);
 
         return (<div className="tabs">
             <div className="tabs__buttons">
@@ -44,6 +51,10 @@ class Tabs extends React.Component {
         </div>);
     }
 }
+Tabs.propTypes = {
+    active: PropTypes.number,
+    children: PropTypes.array
+};
 
 Tabs.Pane = Pane;
 

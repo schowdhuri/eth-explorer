@@ -4,8 +4,6 @@ import * as  ACTIONS from "../constants/actions";
 
 export const getBlocks = state => state.blocks;
 
-const getSelectedBlockId = state => state.selectedBlock;
-
 export const getSelectedBlock = state => state.selectedBlock;
 
 const getAllTransactions = state => state.transactions;
@@ -26,10 +24,10 @@ const getLoadingQ = state => state.loading;
 
 export const isLoadingTxns = createSelector(
     getLoadingQ,
-    loadingQ => loadingQ.find(a => a==ACTIONS.REQ_TXNS)
+    loadingQ => Boolean(loadingQ.find(a => a==ACTIONS.REQ_TXNS))
 );
 
 export const isLoadingBlocks = createSelector(
     getLoadingQ,
-    loadingQ => loadingQ.find(a => a==ACTIONS.REQ_BLOCKS)
+    loadingQ => Boolean(loadingQ.find(a => a==ACTIONS.REQ_BLOCKS))
 );

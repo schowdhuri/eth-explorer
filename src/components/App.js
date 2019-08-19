@@ -1,12 +1,11 @@
 import React from "react";
 
 import Dashboard from "./DashboardContainer";
-import Transactions from "./TransactionsContainer";
 
 import "../sass/index.scss";
 
 
-export default props => {
+const App = () => {
     return <React.Fragment>
         <nav className="navbar">
             <div className="container">
@@ -16,3 +15,5 @@ export default props => {
         <Dashboard />
     </React.Fragment>;
 };
+
+export default App;

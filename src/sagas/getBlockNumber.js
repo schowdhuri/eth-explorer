@@ -13,4 +13,4 @@ function* getBlockNumber() {
 
 export default function* () {
     yield takeEvery(REQ_LATEST_BLOCK, getBlockNumber);
-};
+}

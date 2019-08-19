@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import formatEth from "../utils/formatEth";
 import formatGas from "../utils/formatGas";
@@ -70,6 +71,15 @@ class Transaction extends React.Component {
             </div>
         </div>);
     }
+}
+Transaction.propTypes = {
+    data: PropTypes.shape({
+        from: PropTypes.string.isRequired,
+        gas: PropTypes.number.isRequired,
+        gasPrice: PropTypes.string.isRequired,
+        nonce: PropTypes.number.isRequired,
+        to: PropTypes.string.isRequired
+    })
 };
 
 export default Transaction;

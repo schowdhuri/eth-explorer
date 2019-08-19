@@ -1,4 +1,4 @@
-import { all, take, takeEvery, put } from "redux-saga/effects";
+import { all, takeEvery, put } from "redux-saga/effects";
 
 import { REQ_TXNS } from "../constants/actions";
 import { rcvTxns, setLoading } from "../actions";
@@ -15,18 +15,19 @@ function* getTxns(action) {
     const result = yield all(pArr);
     // console.log(result);
     const txns = result.reduce((acc, cur) => {
-        if(cur)
+        if(cur) {
             return {
                 ...acc,
                 [cur.hash]: cur
             };
-        else
+        } else {
             return acc;
-        }, {});
+        }
+    }, {});
     yield put(rcvTxns(txns));
     yield put(setLoading(REQ_TXNS, false));
 }
 
 export default function* () {
     yield takeEvery(REQ_TXNS, getTxns);
-};
+}

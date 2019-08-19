@@ -1,11 +1,11 @@
 {
   "name": "eth-explorer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Ethereum Blockchain Explorer",
-  "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack --config=webpack.config.prod.js",
     "dev": "webpack-dev-server --open --config=webpack.config.dev.js",
+    "lint": "./node_modules/.bin/eslint ./src/**",
     "start": "./node_modules/.bin/http-server ./dist -d false -g -s -p 3555"
   },
   "keywords": [
@@ -34,9 +34,12 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-1": "6.24.1",
     "css-loader": "0.28.11",
+    "eslint": "4.19.1",
+    "eslint-plugin-react": "7.8.2",
     "file-loader": "1.1.11",
     "html-webpack-plugin": "3.2.0",
     "node-sass": "4.9.0",
+    "prop-types": "15.6.1",
     "sass-loader": "7.0.1",
     "style-loader": "0.21.0",
     "webpack": "4.7.0",
