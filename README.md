@@ -5,6 +5,8 @@ Explore the Ethereum Blockchain
 ## Live Demo
 Open in a browser with [Metamask](https://metamask.io/) plugin: https://schowdhuri.github.io/eth-explorer/
 
+<img src="/screenshots/01-block-details.png" width="200" /> <img src="/screenshots/02-transactions.png" width="200" /> <img src="/screenshots/03-transaction-details.png" width="200" />
+
 ## Development
 1. Clone the repository
 1. Install dependencies: `yarn install` or `npm install`
